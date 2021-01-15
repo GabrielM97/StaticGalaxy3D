@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Helper.h"
+#include "../Utilities/Helper.h"
 
 class NeuralNetwork
 {
@@ -17,5 +17,10 @@ public:
 private:
 
 	std::vector<Layer> m_layers; // m_layers[layerNum][neuronNum]
+	double m_error;
+	double m_recentAverageError;
+	double m_recentAverageSmoothgingFactor;
+
+	static const double BIAS;
 };
 
