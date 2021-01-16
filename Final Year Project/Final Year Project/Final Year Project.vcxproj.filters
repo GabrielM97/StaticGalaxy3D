@@ -24,6 +24,9 @@
     <ClCompile Include="NeuralNetwork\Neuron.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utilities\FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NeuralNetwork\NeuralNetwork.h">
@@ -35,5 +38,12 @@
     <ClInclude Include="Utilities\Helper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\FileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TrainingData\data.txt" />
+    <Text Include="TrainingData\testingData.txt" />
   </ItemGroup>
 </Project>

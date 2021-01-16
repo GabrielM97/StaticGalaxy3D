@@ -12,6 +12,17 @@ m_recentAverageSmoothgingFactor(0.0)
 {
 	//make this throw custom error
 
+	try
+	{
+		if (topology.size() <= 1) throw Topology_Mismatch();
+	}
+	catch (Topology_Mismatch &e)
+	{
+		std::cout << "ERROR - " << e.what() << "Topology is too small. "
+			<< "Must contain at least two layers - {2, 1}" << std::endl;
+		exit(3);
+	}
+
 	uint numLayers = topology.size();
 
 	for (uint layerNum = 0; layerNum < numLayers; ++layerNum)
@@ -33,7 +44,21 @@ m_recentAverageSmoothgingFactor(0.0)
 void NeuralNetwork::FeedForward(const std::vector<double>& inputVals)
 {
 
-	assert(inputVals.size() == m_layers[0].size()-1);
+	try
+	{
+		if (inputVals.size() != m_layers[0].size() - 1)
+		{
+			throw Topology_Mismatch();
+		}
+	}
+	catch (Topology_Mismatch &e)
+	{
+		std::cout << "ERROR - " << e.what() << "Number of inputs does not match topology. "<<
+							"Number of inputs given: "<<inputVals.size() << 
+							" Number of inputs in Topology: " <<
+			 				m_layers[0].size() - 1 <<std::endl;
+		exit(3);
+	}
 
 	//attach  input values to input neurons
 

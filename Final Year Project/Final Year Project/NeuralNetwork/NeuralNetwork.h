@@ -11,6 +11,7 @@ public:
 	void FeedForward(const std::vector<double>& inputVals);
 	void BackProp(const std::vector<double>& targetVals);
 	void getResults(std::vector<double>& resultVals) const;
+	double getRecentAverageError() { return m_recentAverageError; };
 
 	~NeuralNetwork();
 
