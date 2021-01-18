@@ -35,6 +35,8 @@ int main()
 
     file.Read("out", outputVals);
 
+    file.Close();
+
     std::vector<double> resultVals;
 
     std::cout << "===============Training===============" << std::endl;
@@ -96,7 +98,7 @@ int main()
 
     
 
-    for (uint i = 0; i < inputVals.size(); i++)
+    for (uint i = 0; i < inputVals.size()*0.3; i++)
     {
         nn.FeedForward(inputVals[i]);
 
@@ -122,46 +124,7 @@ int main()
         
     }
 
-    double val = inputVals.size();
+    double val = inputVals.size() *0.3;
     std::cout << "Accuracy: " << (score / val) * 100 << " %" << std::endl;
-    //while (true)
-    //{
-    //    std::string in;
-
-    //    std::vector<double> vals;
-
-    //    std::cout << "Enter Iris SepalLength in cm \n";
-
-    //    std::cin >> in;
-
-    //    vals.push_back(std::stod(in));
-
-    //    std::cout << "Enter Iris SepalWidth in cm \n";
-
-    //    std::cin >> in;
-
-    //    vals.push_back(std::stod(in));
-
-    //    std::cout << "Enter Iris PetalLength in cm \n";
-
-    //    std::cin >> in;
-
-    //    vals.push_back(std::stod(in));
-
-    //    std::cout << "Enter Iris PetalWidth in cm \n";
-
-    //    std::cin >> in;
-
-    //    vals.push_back(std::stod(in));
-
-    //    nn.FeedForward(vals);
-    //    nn.getResults(resultVals);
-
-    //    ShowVectorVals("Outputs:", resultVals);
-
-    //    auto x = std::max_element(resultVals.begin(), resultVals.end());
-
-    //    std::cout << "Awnser :" << FindIndex(resultVals, *x) + 1 << std::endl;
-    //}
 }
 
